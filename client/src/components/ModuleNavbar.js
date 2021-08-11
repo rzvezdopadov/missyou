@@ -11,14 +11,17 @@ const PushButtonEntry = () => {
 }
 
 export const ModuleNavbar = () => {
+    const imageWidth  = "30"
+    const imageHeight = "30"
+
     return (
-        <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
+        <Navbar className="ms-1 me-1" fixed="" collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container className="justify-content-center">
                 <Navbar.Brand color="light" href="/">
                     <img 
                         src={logoNavBar} 
-                        width="30" 
-                        height="30" 
+                        width={imageWidth} 
+                        height={imageHeight}
                         className="d-inline-block align-top" 
                         alt=""
                     ></img>

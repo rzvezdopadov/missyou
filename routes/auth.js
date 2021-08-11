@@ -4,7 +4,8 @@ const router = Router()
 router.post(
     '/register', 
     async(req, res) => {
-        console.log(`Запрос POST! Страница /register Data:${req.body}`)
+        console.log(`Запрос POST! Страница /register Data:`)
+        console.log(req.body)
         try {
             res.status(200).json({
                 message:"Регистрация прошла успешно!"
@@ -39,7 +40,8 @@ router.post(
 router.get(
     '/login', 
     async(req, res) => {
-        console.log(`Запрос GET! Страница /login Data:${req.body}`)
+        console.log(`Запрос GET! Страница /login Data:`)
+        console.log(req.body)
         try {
             res.status(200).json({
                 message:"get 200 server!"

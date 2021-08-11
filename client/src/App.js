@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 
 import {ModuleNavbar} from './components/ModuleNavbar'
+import {ModulePanel} from './components/ModulePanel';
 
 // import {ButtonBar} from './components/ButtonBar';
 // import {ContentBar} from './components/ContentBar';
@@ -14,9 +15,7 @@ function App() {
   return (
     <div className="container">
       <ModuleNavbar />
-      {/* <ButtonBar />
-      <ContentBar />
-      <PartnersBar /> */}
+      <ModulePanel />
     </div>
   );
 }
