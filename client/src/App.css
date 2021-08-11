@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.navbar {
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+.navbar-img {
+  height: 2.5rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.navbar-hello {
+  color: aliceblue;
+  margin: 1rem;
+}
+
+.form-style {
+  background-color: lightsteelblue;
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 30px;
+}
+
+.container {
+  text-align: center;
+}
+
+
