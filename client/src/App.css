@@ -16,7 +16,23 @@
   margin-bottom: 0.5rem;
 }
 
+.navitem-partners {
+  width: 200px;
+}
 
+a.content {
+  color: aliceblue;
+  text-decoration: none;
+}
+
+a img {
+  border-radius: .5rem;
+}
+
+a.content:hover {
+  color: red;
+
+}
 
 .navbar-img {
   height: 2.5rem;
@@ -42,5 +58,6 @@
 .container {
   text-align: center;
 }
+
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import logoNavBar from '../img/logoNavBar.png'
 import {Navbar, Container, Nav, Form, FormControl, Button} from 'react-bootstrap'
+import {verifiKey} from '../hooks/verifi.key'
 import {postData} from '../hooks/http.hook'
 
 const PushButtonEntry = () => {
@@ -8,6 +9,44 @@ const PushButtonEntry = () => {
     const pwd = document.getElementById("pwd").value
     const answer = postData("/login",`{phone:'${phone}',pwd:'${pwd}'}`)
     console.log("answer",answer)
+}
+
+const genFieldAuth = () => {
+    if (!verifiKey()) {
+        return (
+            <Form className="d-flex">
+                <FormControl
+                    type="phoneNumber"
+                    placeholder="+71234567890"
+                    className="form-control me-2"
+                    aria-label="phoneNumber"
+                    id="phoneNumber"
+                />
+                <FormControl
+                    type="password"
+                    placeholder="********"
+                    className="form-control me-2"
+                    aria-label="password"
+                    id="pwd"
+                />
+                <Button 
+                    variant="success"
+                    onClick={PushButtonEntry}
+                > Вход
+                </Button>
+            </Form>
+        )
+    } else {
+        return (
+            <Form className="d-flex" variant="light">
+                <Nav.Item className="text-light m-2">Добро пожаловать Ева!</Nav.Item>
+                <Button 
+                    variant="success"
+                > Выход
+                </Button>
+            </Form>
+        )
+    }
 }
 
 export const ModuleNavbar = () => {
@@ -35,27 +74,7 @@ export const ModuleNavbar = () => {
                         <Nav.Link href="/">Партнерство</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                <Form className="d-flex">
-                    <FormControl
-                        type="phoneNumber"
-                        placeholder="+71234567890"
-                        className="form-control me-2"
-                        aria-label="phoneNumber"
-                        id="phoneNumber"
-                    />
-                    <FormControl
-                        type="password"
-                        placeholder="********"
-                        className="form-control me-2"
-                        aria-label="password"
-                        id="pwd"
-                    />
-                    <Button 
-                        variant="success"
-                        onClick={PushButtonEntry}
-                    > Вход
-                    </Button>
-                </Form>
+                {genFieldAuth()}
             </Container>
         </Navbar>
     );

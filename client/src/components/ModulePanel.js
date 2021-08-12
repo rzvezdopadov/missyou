@@ -1,8 +1,8 @@
 import React from 'react'
-import {Container, Nav, Row, Col, Button} from 'react-bootstrap'
-import { ModuleNavCenter } from './ModuleNavCenter'
-import { ModuleSideBarLeft } from './ModuleSideBarLeft'
-import { ModuleSideBarRight } from './ModuleSideBarRight'
+import {Container, Row} from 'react-bootstrap'
+import {ModuleNavCenter} from './ModuleNavCenter'
+import {ModuleSideBarLeft} from './ModuleSideBarLeft'
+import {ModuleSideBarRight} from './ModuleSideBarRight'
 
 export const ModulePanel = () => {
     return (
