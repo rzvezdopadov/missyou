@@ -1,27 +1,33 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import logoNavBar from '../img/logoNavBar.png'
 import {Navbar, Container, Nav, Form, FormControl, Button} from 'react-bootstrap'
-import {verifiKey} from '../hooks/verifi.key'
-import {postData} from '../hooks/http.hook'
+import {AuthContext} from '../context/authContext'
 
-const PushButtonEntry = () => {
-    const phone = document.getElementById("phoneNumber").value
-    const pwd = document.getElementById("pwd").value
-    const answer = postData("/login",`{phone:'${phone}',pwd:'${pwd}'}`)
-    console.log("answer",answer)
-}
+
 
 const genFieldAuth = () => {
-    if (!verifiKey()) {
-        return (
-            <Form className="d-flex">
+
+
+    const pushButtonEntry = () => {
+
+    }
+    
+
+    return (
+        <Form className="d-flex">
+            <div className="m-2">
+                <span className="navbar-hello">Email:</span>
                 <FormControl
-                    type="phoneNumber"
-                    placeholder="+71234567890"
+                    type="eMail"
+                    placeholder="example@example.ru"
                     className="form-control me-2"
-                    aria-label="phoneNumber"
-                    id="phoneNumber"
+                    aria-label="eMail"
+                    id="eMail"
                 />
+            </div>
+            
+            <div className="m-2">
+                <span className="navbar-hello">Пароль:</span>
                 <FormControl
                     type="password"
                     placeholder="********"
@@ -29,29 +35,33 @@ const genFieldAuth = () => {
                     aria-label="password"
                     id="pwd"
                 />
-                <Button 
-                    variant="success"
-                    onClick={PushButtonEntry}
-                > Вход
-                </Button>
-            </Form>
-        )
-    } else {
-        return (
-            <Form className="d-flex" variant="light">
-                <Nav.Item className="text-light m-2">Добро пожаловать Ева!</Nav.Item>
-                <Button 
-                    variant="success"
-                > Выход
-                </Button>
-            </Form>
-        )
-    }
+            </div>
+            
+            <Button 
+                variant="success"
+                onClick={pushButtonEntry}
+            > Вход
+            </Button>
+        </Form>
+    )
+}
+
+const genFieldNoAuth = () => {
+    return (
+        <Form className="d-flex" variant="light">
+            <Nav.Item className="text-light m-2">Добро пожаловать Ева!</Nav.Item>
+            <Button 
+                variant="success"
+            > Выход
+            </Button>
+        </Form>
+    )
 }
 
 export const ModuleNavbar = () => {
     const imageWidth  = "30"
     const imageHeight = "30"
+    const auth = useContext(AuthContext)
 
     return (
         <Navbar className="ms-1 me-1" fixed="" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -74,7 +84,9 @@ export const ModuleNavbar = () => {
                         <Nav.Link href="/">Партнерство</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                {genFieldAuth()}
+                
+                {!auth.token ? genFieldAuth() : genFieldNoAuth()}
+                
             </Container>
         </Navbar>
     );

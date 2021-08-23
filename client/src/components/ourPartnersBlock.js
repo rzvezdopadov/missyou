@@ -9,6 +9,7 @@ export const ourPartnersBlock = (sizeImage,image,href,about,divHeight = 1) => {
                 href={href}
                 target="_blank"
                 className="content"
+                rel="noopener noreferrer"
             >
                 <Image
                     src={image}

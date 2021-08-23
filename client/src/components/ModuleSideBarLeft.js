@@ -1,7 +1,7 @@
-import React from 'react'
-import {Nav, Col, Image, Button, Dropdown} from 'react-bootstrap'
+import React, {useContext} from 'react'
+import {Nav, Col, Image, Button} from 'react-bootstrap'
 import {ourPartnersBlock} from './ourPartnersBlock'
-import {verifiKey} from '../hooks/verifi.key'
+import {AuthContext} from '../context/authContext'
 
 import writeMessage from '../img/writeMessage.png'
 import searchOnMap from '../img/searchOnMap.png'
@@ -27,10 +27,10 @@ const genBtnImage = (size,src,callback) => {
     )
 }
 
-const genBtnNavi = () => {
+const genBtnNavi = (token) => {
     const imageSize  = "50"
 
-    if (verifiKey()) {
+    if (token) {
         return (
             <Nav className="d-lg-block bg-dark justify-content-center col-height mb-2" as="ul">
                 {genBtnImage(imageSize,writeMessage)}                
@@ -46,9 +46,11 @@ export const ModuleSideBarLeft = () => {
     const href  = "https://ad.admitad.com/g/1ekxctpcqv1a0445aa42b62ed2b196/?i=4"
     const image = "https://ad.admitad.com/b/1ekxctpcqv1a0445aa42b62ed2b196/"
 
+    const auth = useContext(AuthContext)
+
     return (
         <Col lg={2} className="p-1 col-height">
-            {genBtnNavi()}
+            {genBtnNavi(auth.token)}
             
             <Nav className="d-lg-block bg-dark text-light justify-content-center" as="ul">
                 <div className="d-flex flex-column">

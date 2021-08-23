@@ -1,3 +1,6 @@
 {
-    "port": 5000
+    "saltConst": "etbiaswerf65413",
+    "jwtSecret": "ertheryh6415135894",
+    "port": 5000,
+    "mongoUri": "mongodb+srv://rzvezdopadov:1234qwer@cluster0.b25hy.mongodb.net/app?retryWrites=true&w=majority"
 }
