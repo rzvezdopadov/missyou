@@ -22,7 +22,7 @@ async function startServer() {
             console.log(`App started on port: "${PORT}"`)
         })
     } catch (e) {
-        
+        console.log("Server error with:",e.message)
     }
 }
 

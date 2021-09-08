@@ -10,12 +10,11 @@ import { AuthContext } from './context/authContext';
 
 
 function App() {
-  const {token, login, logout, userId} = useAuth()
-  const isAuthentificated = !!token
+  const {token, login, logout, userId, userName} = useAuth()
 
   return (
     <AuthContext.Provider value={{
-      token, login, logout, userId, isAuthentificated
+      token, login, logout, userId, userName
     }}>
       <div className="container">
         <ModuleNavbar />
